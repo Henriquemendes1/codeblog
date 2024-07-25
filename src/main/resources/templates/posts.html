@@ -1,6 +1,7 @@
-<<html>
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
 <head>
-    <title>MyCodeBlog</title>
+    <title>MyBlog</title>
 <!--CSS-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
@@ -9,7 +10,7 @@
 
 <header>
     <nav class="navbar navbar-light bg-light">
-        <span class="navbar-brand mb-0 h1" style="font-weight: bold;">MyCodeBlog</span>
+        <span class="navbar-brand mb-0 h1" style="font-weight: bold;">MyBlog</span>
 
     </nav>
 </header>
@@ -24,15 +25,17 @@
         </nav>
 
 
-        <div class="card shadow-sm bg-white rounded" style="margin-top: 20px;">
+        <div class="card shadow-sm bg-white rounded" style="margin-top: 20px;" th:each="post : ${posts}">
             <div class="card-body">
                 <p class="card-subtitle mb-2 text-muted" style="font-size: 0.8rem;">
-
+                    <span th:text="${post.autor}"></span>
+                    <span th:text="${post.data}"></span>
                 </p>
 
-                <a><h4 class="card-title" style="font-weight: bold; color: black; padding-top: 5px;"></h4></a>
+                <a href="#"><h4 class="card-title" style="font-weight: bold; color: black; padding-top: 5px;"><span th:text="${post.titulo}"></span></h4></a>
 
-                <p>class="card-text"</p>
+                <p>class="card-text"><span th:utext="${#strings.abbreviate(post.texto,400)}"></span></p>
+
             </div>
         </div>
 
