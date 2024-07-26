@@ -11,7 +11,7 @@
 <header>
     <nav class="navbar navbar-light bg-light">
         <span class="navbar-brand mb-0 h1" style="font-weight: bold;">MyBlog</span>
-
+        <a href="/newpost" class="btn btn-primary" role="button">Novo Post</a>
     </nav>
 </header>
 
@@ -34,7 +34,7 @@
 
                 <a th:href="${(#mvc.url('CC#getPostDetails').arg(0, post.id)).build()}"><h4 class="card-title" style="font-weight: bold; color: black; padding-top: 5px;"><span th:text="${post.titulo}"></span></h4></a>
 
-                <p>class="card-text"><span th:utext="${#strings.abbreviate(post.texto,400)} "></span></p>
+                <p class="card-text"><span th:utext="${#strings.abbreviate(post.texto,400)} "></span></p>
             </div>
         </div>
 
